@@ -9,7 +9,7 @@ class User
     public static $id           = 0;
     public static $displayName  = '';
     public static $banStatus    = 0x0;                      // see ACC_BAN_* defines
-    public static $groups       = 0x0;
+    public static $groups       = U_GROUP_BUREAU;
     public static $perms        = 0;
     public static $localeId     = 0;
     public static $localeString = 'enus';
