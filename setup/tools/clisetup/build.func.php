@@ -52,7 +52,7 @@ function build($syncMe = null)
             else
                 $done[] = $name;
 
-            CLI::write(' - subscript \''.$file.'\' returned '.($ok ? 'sucessfully' : 'with errors'), $ok ? CLI::LOG_OK : CLI::LOG_ERROR);
+            CLI::write(' - subscript \''.$file.'\' returned '.($ok ? 'successfully' : 'with errors'), $ok ? CLI::LOG_OK : CLI::LOG_ERROR);
             set_time_limit(FileGen::$defaultExecTime);      // reset to default for the next script
         }
 
@@ -70,7 +70,7 @@ function build($syncMe = null)
             else
                 $done[] = $file;
 
-            CLI::write(' - subscript \''.$file.'\' returned '.($ok ? 'sucessfully' : 'with errors'), $ok ? CLI::LOG_OK : CLI::LOG_ERROR);
+            CLI::write(' - subscript \''.$file.'\' returned '.($ok ? 'successfully' : 'with errors'), $ok ? CLI::LOG_OK : CLI::LOG_ERROR);
             set_time_limit(FileGen::$defaultExecTime);      // reset to default for the next script
         }
 
@@ -81,7 +81,7 @@ function build($syncMe = null)
         else
             CLI::write('finished file generation with errors', CLI::LOG_ERROR);
     }
-    else if ($syncMe)
+    else if (FileGen::getMode() == FileGen::MODE_NORMAL)
         CLI::write('no valid script names supplied', CLI::LOG_ERROR);
 
     return $done;

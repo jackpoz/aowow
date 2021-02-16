@@ -36,7 +36,7 @@ function sql($syncMe = null)
             else
                 $done[] = $tbl;
 
-            CLI::write(' - subscript \''.$tbl.'\' returned '.($ok ? 'sucessfully' : 'with errors'), $ok ? CLI::LOG_OK : CLI::LOG_ERROR);
+            CLI::write(' - subscript \''.$tbl.'\' returned '.($ok ? 'successfully' : 'with errors'), $ok ? CLI::LOG_OK : CLI::LOG_ERROR);
             set_time_limit(SqlGen::$defaultExecTime);      // reset to default for the next script
         }
 
@@ -47,7 +47,7 @@ function sql($syncMe = null)
         else
             CLI::write('finished sql generation with errors', CLI::LOG_ERROR);
     }
-    else if ($syncMe)
+    else if (SqlGen::getMode() == SqlGen::MODE_NORMAL)
         CLI::write('no valid script names supplied', CLI::LOG_ERROR);
 
     return $done;
